@@ -47,7 +47,7 @@ init_db()
 st.title("活动签到系统")
 
 # 生成二维码
-form_url = "https://your-streamlit-app.com"  # 修改为实际 Streamlit 部署地址
+form_url = "https://app-qr-app-oulaiya.streamlit.app"  # 修改为实际 Streamlit 部署地址
 st.subheader("扫码签到")
 qr_image = generate_qr(form_url)
 st.image(qr_image, caption="扫描二维码进行签到", use_container_width=False)

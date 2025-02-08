@@ -33,6 +33,8 @@ if st.button("✅ 签到"):
         
         if existing_user:
             st.warning("您已签到，无需重复签到！")
+            cursor.execute("SELECT * FROM users")
+            st.write(cursor.fetchall())  # 直接在界面上显示数据库里的数据，方便调试
         else:
             # 插入数据
             cursor.execute("INSERT INTO users (name) VALUES (?)", (name,))

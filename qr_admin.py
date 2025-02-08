@@ -36,7 +36,7 @@ if search_query:
 st.dataframe(df_users, use_container_width=True)
 
 if st.button("🔄 刷新数据"):
-    st.experimental_rerun()
+    st.rerun()
 
 # 数据导出
 if st.button("📥 导出 Excel"):
@@ -49,7 +49,7 @@ if st.button("删除用户") and delete_user:
     cursor.execute("DELETE FROM users WHERE name=?", (delete_user,))
     conn.commit()
     st.success(f"用户 {delete_user} 已删除")
-    st.experimental_rerun()
+    st.rerun()
 
 # 关闭数据库连接
 conn.close()

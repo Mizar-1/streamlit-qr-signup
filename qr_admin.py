@@ -6,6 +6,9 @@ import sqlite3
 conn = sqlite3.connect("user_data.db", check_same_thread=False)
 cursor = conn.cursor()
 
+#检查user_data.db路径是否一致
+print(os.path.abspath("user_data.db"))
+
 # 创建用户数据表（如果不存在）
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS users (

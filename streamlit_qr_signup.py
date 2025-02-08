@@ -38,6 +38,8 @@ if st.button("✅ 签到"):
             cursor.execute("INSERT INTO users (name) VALUES (?)", (name,))
             conn.commit()
             st.success(f"欢迎 {name}！签到成功 🎉")
+            cursor.execute("SELECT * FROM users")
+            st.write(cursor.fetchall())  # 直接在界面上显示数据库里的数据，方便调试
     else:
         st.error("请输入姓名后再签到")
 

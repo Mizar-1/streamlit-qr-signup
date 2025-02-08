@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import sqlite3
+import os
 
 # 连接 SQLite 数据库
 conn = sqlite3.connect("user_data.db", check_same_thread=False)

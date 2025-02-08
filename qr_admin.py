@@ -26,6 +26,7 @@ st.subheader(f"✅ 已签到人数: {total_users}")
 # 显示已签到用户列表
 st.subheader("📋 签到用户列表")
 df_users = pd.read_sql("SELECT * FROM users", conn)
+st.dataframe(df_users,use_container_width = True)
 
 # 搜索功能
 search_query = st.text_input("🔍 搜索用户（输入姓名）")
@@ -33,6 +34,9 @@ if search_query:
     df_users = df_users[df_users["name"].str.contains(search_query, case=False, na=False)]
 
 st.dataframe(df_users, use_container_width=True)
+
+if st.button("🔄 刷新数据"):
+    st.experimental_rerun()
 
 # 数据导出
 if st.button("📥 导出 Excel"):
